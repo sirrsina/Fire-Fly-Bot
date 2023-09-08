@@ -420,6 +420,29 @@ async def on_message(message):
 
 
 
+@bot.command()
+@commands.has_permissions(manage_channels=True)
+async def lock(ctx, channel : discord.TextChannel=None):
+    overwrite = ctx.channel.overwrites_for(ctx.guild.default_role)
+    overwrite.send_messages = False
+    await ctx.channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
+    await ctx.send(embed = discord.Embed(title="𝐑𝐀𝐒𝐓𝐀𝐊𝐇𝐈𝐙", description=ctx.channel.mention + " has been locked.", color=discord.Color.random()))
+@lock.error
+async def lock_error(ctx, error):
+    if isinstance(error,commands.CheckFailure):
+        await ctx.send('You do not have permission to use this command!')
+
+
+
+@bot.command()
+@has_permissions(manage_channels=True)
+async def unlock(ctx):
+    await ctx.channel.set_permissions(ctx.guild.default_role, send_messages=True)
+    await ctx.send(embed = discord.Embed(title="𝐑𝐀𝐒𝐓𝐀𝐊𝐇𝐈𝐙", description=ctx.channel.mention + " has been unlocked.", color=discord.Color.random()))
+@lock.error
+async def lock_error(ctx, error):
+    if isinstance(error,commands.CheckFailure):
+        await ctx.send('You do not have permission to use this command!')
 
 
 
