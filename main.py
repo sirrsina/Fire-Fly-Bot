@@ -421,32 +421,6 @@ async def on_message(message):
 
 
 
-@bot.event
-async def on_guild_channel_delete(ctx, channel, massage):
-
-    log_channel = bot.get_channel(1147601501989114028)
-    time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    if channel.name.startswith('ticket-'):
-        embed = discord.Embed(
-        title="ticket deleted ❌",
-        description=f"ticket name: **{channel.name}**",
-        color=discord.Color.red(),
-        )
-        embed.set_footer(text=f"Time: {time}")
-        await log_channel.send(embed=embed)
-    else:
- 
-        user = '??'
-        if isinstance(channel, discord.VoiceChannel):
-            emoji = '🔊'
-        else:
-            emoji = '💬'
-        embed = discord.Embed(title=f"**{channel.type}** channel deleted ❌")
-        embed = discord.embed(embed = discord.Embed(title="𝐑𝐀𝐒𝐓𝐀𝐊𝐇𝐈𝐙", description=f" {user_mention} send a bad word", color=discord.Color.random())\nchannel type: {emoji}\nchannel name: **{channel.name}**")
-        color=discord.Color.red(),
-        )
-        embed.set_footer(text=f"Time: {time}")
-        await log_channel.send(embed=embed)
 
 
 
