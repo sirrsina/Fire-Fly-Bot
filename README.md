@@ -1,1 +1,1 @@
-Rastakhiz Team : https://discord.gg/4WcerTQY7f
+Rastakhiz Team : https://discord.gg/q4fwzvCc
